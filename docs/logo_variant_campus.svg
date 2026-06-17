@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="SCMS campus logo variant">
+  <rect width="1024" height="1024" rx="150" fill="#F4F8FB"/>
+  <circle cx="512" cy="512" r="390" fill="#0A4D68"/>
+  <polygon points="272,420 512,268 752,420" fill="#F2C94C"/>
+  <rect x="310" y="442" width="404" height="44" rx="12" fill="#F2C94C"/>
+  <rect x="352" y="522" width="70" height="190" rx="12" fill="#FFFFFF"/>
+  <rect x="477" y="522" width="70" height="190" rx="12" fill="#FFFFFF"/>
+  <rect x="602" y="522" width="70" height="190" rx="12" fill="#FFFFFF"/>
+  <rect x="300" y="744" width="424" height="54" rx="20" fill="#F2C94C"/>
+  <text x="512" y="870" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="800" fill="#FFFFFF">SCMS</text>
+</svg>

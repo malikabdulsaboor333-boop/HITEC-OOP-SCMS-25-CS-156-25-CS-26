@@ -1,0 +1,54 @@
+SMART CAMPUS MANAGEMENT SYSTEM (SCMS) PRESENTATION NOTES
+
+Deck purpose:
+Modern instructor-ready software showcase for HITEC University Taxila.
+
+Slide count: 17
+
+Slide outline:
+1. Title Slide - project branding, authors, instructor.
+2. Project Introduction - purpose, objectives, scope.
+3. Project Architecture - menu-driven architecture and modules.
+4. Folder Structure - src/docs/data organization.
+5. Person Hierarchy - abstract Person and multilevel inheritance.
+6. Course & Enrollment - operators and workflow.
+7. Library Management - abstraction, templates, borrowing.
+8. Finance & Payroll - records, static counters, friend summary, persistence.
+9. Hostel Management - multiple and virtual inheritance, composition, aggregation.
+10. Reports & Utilities - namespaces, smart pointers, lambdas, STL algorithms.
+11. Persistence System - CSV/TXT save-load workflow.
+12. OOP Concepts Implemented - concept matrix.
+13. UML Overview - project class relationships.
+14. Build & Verification - clean build and runtime confirmation.
+15. Project Achievements - completed deliverables.
+16. Conclusion - academic and technical value.
+17. Questions & Answers - closing slide.
+
+Diagrams included:
+- System architecture diagram
+- Folder structure diagram
+- Person inheritance and polymorphism diagram
+- Course enrollment relationship workflow
+- Library inheritance/template/borrowing workflow
+- Finance inheritance/composition/persistence diagram
+- Hostel virtual inheritance diamond diagram
+- Reports namespace/smart-pointer/lambda workflow
+- Persistence save/load data flow
+- OOP concept matrix
+- UML overview using verified docs/UML artifact
+
+Assets used:
+- slide_assets/logo.png
+- slide_assets/logo.svg
+- slide_assets/uml_class_diagram.png
+- slide_assets/icon_person.png
+- slide_assets/icon_course.png
+- slide_assets/icon_library.png
+- slide_assets/icon_finance.png
+- slide_assets/icon_hostel.png
+- slide_assets/icon_reports.png
+- slide_assets/icon_database.png
+- slide_assets/icon_build.png
+
+Suggested delivery script:
+Open with the problem: campus processes are broad, so the project is split into six focused modules. Then explain that each module is not only functional but also mapped to a required OOP concept. Spend extra time on Person hierarchy, Course operators, Library templates, Finance friend/static features, Hostel virtual inheritance, and Reports smart pointers/lambdas. Close by showing persistence, build verification, and final submission readiness.

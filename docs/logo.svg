@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">HITEC University SCMS Logo</title>
+  <desc id="desc">A shield logo showing a campus building, graduation cap, and SCMS initials.</desc>
+  <defs>
+    <linearGradient id="shieldGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#083B66"/>
+      <stop offset="55%" stop-color="#0B5C8A"/>
+      <stop offset="100%" stop-color="#0F8A9D"/>
+    </linearGradient>
+    <linearGradient id="goldGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFD166"/>
+      <stop offset="100%" stop-color="#F4A261"/>
+    </linearGradient>
+    <filter id="softShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#06263A" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="1024" height="1024" rx="180" fill="#F7FBFF"/>
+  <path d="M512 84 L842 204 V476 C842 684 706 840 512 936 C318 840 182 684 182 476 V204 Z"
+        fill="url(#shieldGradient)" filter="url(#softShadow)"/>
+  <path d="M512 140 L786 238 V476 C786 642 681 776 512 862 C343 776 238 642 238 476 V238 Z"
+        fill="#FFFFFF" opacity="0.08"/>
+
+  <polygon points="300,355 512,230 724,355" fill="url(#goldGradient)"/>
+  <rect x="338" y="370" width="348" height="36" rx="12" fill="#FFD166"/>
+  <rect x="366" y="436" width="58" height="178" rx="14" fill="#EAF6FF"/>
+  <rect x="464" y="436" width="58" height="178" rx="14" fill="#EAF6FF"/>
+  <rect x="562" y="436" width="58" height="178" rx="14" fill="#EAF6FF"/>
+  <rect x="330" y="630" width="364" height="40" rx="16" fill="#FFD166"/>
+
+  <polygon points="365,270 512,206 659,270 512,334" fill="#06283D"/>
+  <rect x="500" y="318" width="24" height="66" rx="10" fill="#06283D"/>
+  <circle cx="512" cy="392" r="18" fill="#FFD166"/>
+
+  <text x="512" y="770" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif" font-size="120"
+        font-weight="800" fill="#FFFFFF" letter-spacing="8">SCMS</text>
+  <text x="512" y="826" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif" font-size="34"
+        font-weight="700" fill="#DFF6FF" letter-spacing="4">HITEC UNIVERSITY</text>
+</svg>

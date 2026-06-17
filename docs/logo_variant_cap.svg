@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="SCMS graduation cap logo variant">
+  <rect width="1024" height="1024" rx="180" fill="#052C45"/>
+  <circle cx="512" cy="512" r="350" fill="#0F8A9D" opacity="0.28"/>
+  <polygon points="254,350 512,240 770,350 512,462" fill="#FFD166"/>
+  <polygon points="356,430 512,500 668,430 668,552 512,630 356,552" fill="#FFFFFF"/>
+  <line x1="712" y1="378" x2="712" y2="555" stroke="#FFD166" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="712" cy="584" r="32" fill="#FFD166"/>
+  <text x="512" y="780" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="138" font-weight="900" fill="#FFFFFF">SCMS</text>
+  <text x="512" y="842" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#FFD166">SMART CAMPUS</text>
+</svg>
