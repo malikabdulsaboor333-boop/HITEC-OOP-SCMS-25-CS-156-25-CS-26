@@ -1,0 +1,20 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build SCMS",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-Command",
+        "New-Item -ItemType Directory -Force build | Out-Null; $sources = Get-ChildItem src -Recurse -Filter *.cpp; & g++ -std=c++17 -Wall -Wextra $sources.FullName -o build/scms.exe; exit $LASTEXITCODE"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": "$gcc"
+    }
+  ]
+}

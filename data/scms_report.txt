@@ -1,0 +1,39 @@
+========================================
+SMART CAMPUS MANAGEMENT SYSTEM
+CONSOLIDATED REPORT
+========================================
+Title: Spring 2025 Consolidated Report
+Generated Date: 2026-06-15 11:32:30
+
+STUDENT INFORMATION SUMMARY
+Total Students: 2
+- 25-CS-26 | Abdullah Sajjid | Computer Science | GPA: 3.90
+- 23-CS-156 | Abdul Saboor | Computer Science | GPA: 2.50
+
+FACULTY SUMMARY
+Total Faculty: 1
+- EMP-001 | Professor Mohsin Shahzad | Professor
+
+COURSE SUMMARY
+Total Courses: 1
+- CS-202 | Object-Oriented Programming | Credit Hours: 3 | Enrolled: 2
+
+LIBRARY SUMMARY
+Total Tracked Items: 2
+Overdue Items: 1
+First Overdue Item: J-001 | IEEE Software
+- OVERDUE: J-001 | IEEE Software
+
+FINANCE SUMMARY
+Total Fee Records: 2
+Unpaid Fee Records: 1
+Collected Fees: 85000.00
+- UNPAID: FEE-002 | 25-CS-26 | Amount: 85000.00
+
+HOSTEL SUMMARY
+Total Blocks: 1
+Total Rooms: 2
+Occupied Rooms: 1
+Vacant Rooms: 1
+Total Occupants: 1
+- Block A | Rooms: 2 | Occupied: 1 | Occupants: 1
