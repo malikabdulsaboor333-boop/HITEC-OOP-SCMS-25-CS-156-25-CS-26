@@ -1,0 +1,3 @@
+RecordType,RecordId,Description,TransactionDate,PartyId,PartyName,Amount,AllowanceOrSemester,DeductionOrPaid
+SALARY,"SAL-001","June salary","2025-06-30","EMP-001","Professor Mohsin Shahzad",150000,20000,10000
+FEE,"FEE-001","Spring tuition fee",85000,"2025-02-10","23-CS-001","Ali Khan","Spring 2025",1

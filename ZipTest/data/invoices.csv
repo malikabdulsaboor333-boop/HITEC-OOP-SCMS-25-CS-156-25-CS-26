@@ -1,0 +1,2 @@
+RecordType,RecordId,Description,Amount,TransactionDate,InvoiceNumber,PayerName,Paid,InvoiceCounter,LineItemCount,LineItems
+INVOICE,"INV-REC-001","Campus service invoice",2500,"2025-03-01","INV-001","Ali Khan",0,7,2,"Transport Card","Processing Fee"

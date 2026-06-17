@@ -1,0 +1,242 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+hide empty members
+
+abstract class Person {
+  # name : string
+  # cnic : string
+  # age : int
+  # contact : string
+  + displayInfo() const
+  + virtual ~Person()
+}
+
+class Student {
+  - rollNo : string
+  - department : string
+  - cgpa : float
+}
+
+class Faculty {
+  - employeeId : string
+  - designation : string
+  - salary : double
+}
+
+class Staff {
+  - employeeId : string
+  - role : string
+  - salary : double
+}
+
+class GradStudent {
+  - researchTopic : string
+  - supervisor : string
+}
+
+Person <|-- Student
+Person <|-- Faculty
+Person <|-- Staff
+Student <|-- GradStudent
+
+class EnrollmentException
+class CapacityExceededException
+class OverdueException
+EnrollmentException <|-- CapacityExceededException
+
+class Course {
+  - courseCode : string
+  - courseTitle : string
+  - creditHours : int
+  - maxCapacity : int
+  - enrolledStudents : int
+  - faculty : const Faculty*
+  - enrolledStudentRollNumbers : set<string>
+}
+
+class Enrollment {
+  - studentRollNo : string
+  - courseCode : string
+  - semester : string
+  - grade : char
+  - student : const Student*
+}
+
+Course o-- Faculty : assigned faculty
+Course ..> Enrollment : operator overloads
+Enrollment o-- Student : associated student
+
+abstract class LibraryItem {
+  # itemId : string
+  # title : string
+  # isAvailable : bool
+  + displayInfo() const
+}
+
+class Book {
+  - author : string
+  - isbn : string
+  - publicationYear : int
+}
+
+class Journal {
+  - publisher : string
+  - volume : int
+  - issue : int
+}
+
+class LibraryMember {
+  - memberId : string
+  - memberName : string
+  - borrowedItems : vector<string>
+}
+
+class LibraryManager {
+  - items : vector<unique_ptr<LibraryItem>>
+  - members : vector<LibraryMember>
+}
+
+class "Library<T>" as LibraryT {
+  - items : vector<T>
+  - itemIndex : map<string,size_t>
+  - titles : set<string>
+}
+
+LibraryItem <|-- Book
+LibraryItem <|-- Journal
+LibraryManager *-- LibraryItem : owns via unique_ptr
+LibraryManager *-- LibraryMember : owns
+LibraryMember o-- LibraryItem : borrowed item IDs
+LibraryT *-- "T" : template storage
+note right of LibraryT
+  searchByTitle<T>() is a function template in Library.h.
+end note
+
+class FinancialRecord {
+  - recordId : string
+  - description : string
+  - amount : double
+  - transactionDate : string
+  + virtual displayRecord() const
+}
+
+class SalaryRecord {
+  - employeeId : string
+  - employeeName : string
+  - basicSalary : double
+  - allowance : double
+  - deduction : double
+  - totalSalaryRecords : static int
+}
+
+class FeeRecord {
+  - studentRollNo : string
+  - studentName : string
+  - semester : string
+  - feePaid : bool
+  - totalFeeRecords : static int
+}
+
+class Invoice {
+  - invoiceNumber : string
+  - payerName : string
+  - lineItems : vector<string>
+  - paid : bool
+  - invoiceCounter : static int
+}
+
+class FinanceManager {
+  - salaryRecords : vector<SalaryRecord>
+  - feeRecords : vector<FeeRecord>
+  - invoices : vector<Invoice>
+}
+
+FinancialRecord <|-- SalaryRecord
+FinancialRecord <|-- FeeRecord
+FinancialRecord <|-- Invoice
+FinanceManager *-- SalaryRecord
+FinanceManager *-- FeeRecord
+FinanceManager *-- Invoice
+
+abstract class BaseEntity {
+  - entityId : string
+  + displayInfo() const
+}
+
+abstract class Accommodation {
+  + allocateRoom()
+  + vacateRoom()
+}
+
+abstract class Reportable {
+  + generateReport() const
+}
+
+class Room {
+  - roomNumber : string
+  - roomType : string
+  - floorNumber : int
+  - maxCapacity : int
+  - occupants : vector<string>
+}
+
+class HostelBlock {
+  - blockName : string
+  - rooms : vector<Room>
+}
+
+class HostelManager {
+  - hostelBlocks : vector<HostelBlock>
+}
+
+BaseEntity <|.. Accommodation : virtual public
+BaseEntity <|.. Reportable : virtual public
+Accommodation <|-- HostelManager
+Reportable <|-- HostelManager
+HostelManager *-- HostelBlock
+HostelBlock *-- Room
+Room o-- Student : roll numbers only
+
+package "SCMS::Reports" {
+  class StudentSummary <<struct>>
+  class FacultySummary <<struct>>
+  class CourseSummary <<struct>>
+  class LibrarySummary <<struct>>
+  class FeeSummary <<struct>>
+  class HostelSummary <<struct>>
+  class CampusReportData <<struct>>
+  class ReportGenerator
+
+  CampusReportData *-- StudentSummary
+  CampusReportData *-- FacultySummary
+  CampusReportData *-- CourseSummary
+  CampusReportData *-- LibrarySummary
+  CampusReportData *-- FeeSummary
+  CampusReportData *-- HostelSummary
+  ReportGenerator ..> CampusReportData
+}
+
+package "SCMS::Utils" {
+  class UtilityManager
+}
+
+package "SCMS::Persistence" {
+  class CsvUtils
+  class CampusPersistence
+  CampusPersistence ..> CsvUtils
+}
+
+CampusPersistence ..> Person
+CampusPersistence ..> Course
+CampusPersistence ..> Enrollment
+CampusPersistence ..> LibraryManager
+CampusPersistence ..> HostelManager
+CampusPersistence ..> FinanceManager
+
+FinanceManager ..> FinancialRecord : friend generateFinanceSummary()
+FinanceManager ..> SalaryRecord : friend generateFinanceSummary()
+FinanceManager ..> FeeRecord : friend generateFinanceSummary()
+FinanceManager ..> Invoice : friend class
+
+@enduml

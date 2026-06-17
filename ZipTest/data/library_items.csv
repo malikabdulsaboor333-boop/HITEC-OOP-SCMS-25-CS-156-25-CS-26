@@ -1,0 +1,3 @@
+Type,ItemId,Title,Available,Creator,IdentifierOrVolume,YearOrIssue
+BOOK,"B-001","Clean Code",0,"Robert C. Martin","9780132350884",2008
+JOURNAL,"J-001","IEEE Software",1,"IEEE",42,2

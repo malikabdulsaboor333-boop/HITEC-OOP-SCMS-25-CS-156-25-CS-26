@@ -1,0 +1,310 @@
+classDiagram
+direction TB
+
+class Person {
+  <<abstract>>
+  #string name
+  #string cnic
+  #int age
+  #string contact
+  +displayInfo() const*
+  +virtual ~Person()
+}
+
+class Student {
+  -string rollNo
+  -string department
+  -float cgpa
+  +displayInfo() const
+}
+
+class Faculty {
+  -string employeeId
+  -string designation
+  -double salary
+  +displayInfo() const
+}
+
+class Staff {
+  -string employeeId
+  -string role
+  -double salary
+  +displayInfo() const
+}
+
+class GradStudent {
+  -string researchTopic
+  -string supervisor
+  +displayInfo() const
+}
+
+Person <|-- Student
+Person <|-- Faculty
+Person <|-- Staff
+Student <|-- GradStudent
+
+class EnrollmentException
+class CapacityExceededException
+class OverdueException
+EnrollmentException <|-- CapacityExceededException
+
+class Course {
+  -string courseCode
+  -string courseTitle
+  -int creditHours
+  -int maxCapacity
+  -int enrolledStudents
+  -const Faculty* faculty
+  -set~string~ enrolledStudentRollNumbers
+  +operator+=(Enrollment)
+  +operator+(Enrollment)
+  +operator==(Course)
+}
+
+class Enrollment {
+  -string studentRollNo
+  -string courseCode
+  -string semester
+  -char grade
+  -const Student* student
+}
+
+Course o-- Faculty : assigned faculty
+Course ..> Enrollment : operator overloads
+Enrollment o-- Student : associated student
+
+class LibraryItem {
+  <<abstract>>
+  #string itemId
+  #string title
+  #bool isAvailable
+  +displayInfo() const*
+}
+
+class Book {
+  -string author
+  -string isbn
+  -int publicationYear
+}
+
+class Journal {
+  -string publisher
+  -int volume
+  -int issue
+}
+
+class LibraryMember {
+  -string memberId
+  -string memberName
+  -vector~string~ borrowedItems
+}
+
+class LibraryManager {
+  -vector~unique_ptr~LibraryItem~~ items
+  -vector~LibraryMember~ members
+}
+
+class Library~T~ {
+  -vector~T~ items
+  -map~string,size_t~ itemIndex
+  -set~string~ titles
+}
+
+LibraryItem <|-- Book
+LibraryItem <|-- Journal
+LibraryManager *-- LibraryItem : owns via unique_ptr
+LibraryManager *-- LibraryMember : owns
+LibraryMember o-- LibraryItem : borrowed item IDs
+Library~T~ *-- T : template storage
+
+class FinancialRecord {
+  -string recordId
+  -string description
+  -double amount
+  -string transactionDate
+  +virtual displayRecord() const
+}
+
+class SalaryRecord {
+  -string employeeId
+  -string employeeName
+  -double basicSalary
+  -double allowance
+  -double deduction
+  -static int totalSalaryRecords
+}
+
+class FeeRecord {
+  -string studentRollNo
+  -string studentName
+  -string semester
+  -bool feePaid
+  -static int totalFeeRecords
+}
+
+class Invoice {
+  -string invoiceNumber
+  -string payerName
+  -vector~string~ lineItems
+  -bool paid
+  -static int invoiceCounter
+}
+
+class FinanceManager {
+  -vector~SalaryRecord~ salaryRecords
+  -vector~FeeRecord~ feeRecords
+  -vector~Invoice~ invoices
+}
+
+FinancialRecord <|-- SalaryRecord
+FinancialRecord <|-- FeeRecord
+FinancialRecord <|-- Invoice
+FinanceManager *-- SalaryRecord
+FinanceManager *-- FeeRecord
+FinanceManager *-- Invoice
+
+class BaseEntity {
+  <<abstract>>
+  -string entityId
+  +displayInfo() const*
+}
+
+class Accommodation {
+  <<abstract>>
+  +allocateRoom()*
+  +vacateRoom()*
+}
+
+class Reportable {
+  <<abstract>>
+  +generateReport() const*
+}
+
+class Room {
+  -string roomNumber
+  -string roomType
+  -int floorNumber
+  -int maxCapacity
+  -vector~string~ occupants
+}
+
+class HostelBlock {
+  -string blockName
+  -vector~Room~ rooms
+}
+
+class HostelManager {
+  -vector~HostelBlock~ hostelBlocks
+}
+
+BaseEntity <|.. Accommodation : virtual public
+BaseEntity <|.. Reportable : virtual public
+Accommodation <|-- HostelManager
+Reportable <|-- HostelManager
+HostelManager *-- HostelBlock
+HostelBlock *-- Room
+Room o-- Student : roll numbers only
+
+class StudentSummary {
+  <<struct>>
+  +string rollNo
+  +string studentName
+  +string department
+  +double gpa
+}
+
+class FacultySummary {
+  <<struct>>
+  +string employeeId
+  +string facultyName
+  +string designation
+}
+
+class CourseSummary {
+  <<struct>>
+  +string courseCode
+  +string courseTitle
+  +int creditHours
+  +int enrolledStudents
+}
+
+class LibrarySummary {
+  <<struct>>
+  +string itemId
+  +string title
+  +bool overdue
+}
+
+class FeeSummary {
+  <<struct>>
+  +string recordId
+  +string studentRollNo
+  +double amount
+  +bool paid
+}
+
+class HostelSummary {
+  <<struct>>
+  +string blockName
+  +int totalRooms
+  +int occupiedRooms
+  +int totalOccupants
+}
+
+class CampusReportData {
+  <<struct>>
+  +vector~StudentSummary~ students
+  +vector~FacultySummary~ faculty
+  +vector~CourseSummary~ courses
+  +vector~LibrarySummary~ libraryRecords
+  +vector~FeeSummary~ feeRecords
+  +vector~HostelSummary~ hostelBlocks
+}
+
+class ReportGenerator {
+  -string reportTitle
+  -string generatedDate
+  +generateCampusReport(CampusReportData) string
+  +exportTextReport(string,string,bool) bool
+}
+
+CampusReportData *-- StudentSummary
+CampusReportData *-- FacultySummary
+CampusReportData *-- CourseSummary
+CampusReportData *-- LibrarySummary
+CampusReportData *-- FeeSummary
+CampusReportData *-- HostelSummary
+ReportGenerator ..> CampusReportData
+
+class UtilityManager {
+  +validateEmail(string) bool
+  +validateCNIC(string) bool
+  +validatePhone(string) bool
+  +getCurrentTimestamp() string
+  +createShared() shared_ptr~UtilityManager~
+}
+
+class CsvUtils {
+  +ensureFile(string,string) bool
+  +openOutput(ofstream,string,string,bool) bool
+  +parseLine(string) vector~string~
+}
+
+class CampusPersistence {
+  +ensureDataFiles() bool
+  +saveToFile(...) bool
+  +loadFromFile(...) bool
+}
+
+CampusPersistence ..> Person
+CampusPersistence ..> Course
+CampusPersistence ..> Enrollment
+CampusPersistence ..> LibraryManager
+CampusPersistence ..> HostelManager
+CampusPersistence ..> FinanceManager
+CampusPersistence ..> CsvUtils
+
+FinanceManager ..> FinancialRecord : friend generateFinanceSummary()
+FinanceManager ..> SalaryRecord : friend generateFinanceSummary()
+FinanceManager ..> FeeRecord : friend generateFinanceSummary()
+FinanceManager ..> Invoice : friend class
