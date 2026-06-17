@@ -1,0 +1,7 @@
+*.o
+*.obj
+*.exe
+*.out
+build/
+**/build/
+data/scms_finance_audit.csv
